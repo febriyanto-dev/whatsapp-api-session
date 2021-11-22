@@ -48,22 +48,25 @@ const client = new Client({
 
 const db = require('./helpers/db');
 
-client.on('message', async msg => {
+client.on('message', msg => {
 
-    const keyword = msg.body.toLowerCase();
-    const replayMessage = await db.getReply(keyword);
+    // const keyword = msg.body.toLowerCase();
+    // const replayMessage = await db.getReply(keyword);
 
-    if(replayMessage !== false)
-    {
-        msg.reply(replayMessage);
+    // if(replayMessage !== false)
+    // {
+    //     msg.reply(replayMessage);
+    // }
+
+    if (msg.body == '!ping') {
+        msg.reply('pong');
     }
-
-    // if (msg.body == '!ping') {
-    //     msg.reply('pong');
-    // }
-    // else if(msg.body == 'good morning'){
-    //     msg.reply('Selamat Pagi...');
-    // }
+    else if(msg.body == 'good morning'){
+        msg.reply('Selamat Pagi...');
+    }
+    else if(msg.body == 'Hai siapa kamu ?'){
+        msg.reply('My name is .... ?');
+    }
 });
 
 client.initialize();
