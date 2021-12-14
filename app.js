@@ -14,9 +14,9 @@ const io = socketIO(server);
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(fileUpload({
-    debug: true
-}));
+// app.use(fileUpload({
+//     debug: true
+// }));
 
 const SESSION_FILE_PATH = './whatsapp-session.json';
 let sessionCfg;
